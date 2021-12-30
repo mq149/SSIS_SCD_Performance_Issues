@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1684
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS_SCD_Performance_Issues", "SSIS_SCD_Performance_Issues.dtproj", "{5A733B46-E60E-4871-B2B6-5A38F46B0C10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A733B46-E60E-4871-B2B6-5A38F46B0C10}.Development|Default.ActiveCfg = Development
+		{5A733B46-E60E-4871-B2B6-5A38F46B0C10}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {774E4746-C339-4B39-AA96-D8CE3F8CE411}
+	EndGlobalSection
+EndGlobal
