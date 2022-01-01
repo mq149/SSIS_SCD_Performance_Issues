@@ -1,0 +1,2997 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/30/2021 5:25:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-TOL1F2F"
+  DTS:CreatorName="DESKTOP-TOL1F2F\quany"
+  DTS:DTSID="{DC7F4206-CEDA-470C-9C56-B24DBCFDFBB9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="With_SCD_Wizard_Second-ETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{CBE3AFE5-1E11-4CE0-B06C-C4783C0AFAEB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4CA558BA-0343-479D-9514-3CEC05ED7D63}"
+      DTS:ObjectName="DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-TOL1F2F\MSSQLSERVERBI;Initial Catalog=Seminar_DDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6DF2B9B7-12D5-4601-BBAB-1CD2169AE833}"
+      DTS:ObjectName="DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-TOL1F2F\MSSQLSERVERBI;Initial Catalog=Seminar_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2E632E05-EF50-43EF-9411-B5EA4D83BFBD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes)"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes)"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[employee_data_update_table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_1]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_1]"
+                      name="attr_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_2]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_2]"
+                      name="attr_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_3]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_3]"
+                      name="attr_3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_4]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_4]"
+                      name="attr_4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_5]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_5]"
+                      name="attr_5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_6]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_6]"
+                      name="attr_6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_1" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_2" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_3" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_4" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_5" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].ExternalColumns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_1]"
+                      name="attr_1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_2]"
+                      name="attr_2" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_3]"
+                      name="attr_3" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_4]"
+                      name="attr_4" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_5]"
+                      name="attr_5" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[attr_6]"
+                      name="attr_6" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="(SCD) Setup SCD for DimEmployee"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [attr_1], [attr_2], [attr_4], [attr_5], [attr_6], [id],[effective_date],[expiry_date] FROM [dbo].[DimEmployee_indexed]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere">[effective_date] IS NOT NULL AND [expiry_date] IS NULL</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].Columns[attr_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_1"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_1]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].Columns[attr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_2"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_2]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].Columns[attr_4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_4"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_4]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_4]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].Columns[attr_5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_5"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_5]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_5]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].Columns[attr_6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_6"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_6]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_6]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[id]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_1" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_2" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_4" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_5" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_6" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[effective_date]"
+                      dataType="dbTimeStamp"
+                      name="effective_date" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input].ExternalColumns[expiry_date]"
+                      dataType="dbTimeStamp"
+                      name="expiry_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Output].Columns[expiry_date]"
+                      dataType="dbTimeStamp"
+                      description="expiry_date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Output].Columns[expiry_date]"
+                      name="expiry_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output].Columns[effective_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output].Columns[effective_date]"
+                      name="effective_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output].Columns[is_active]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output].Columns[is_active]"
+                      name="is_active"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimEmployee_indexed]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[id]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[attr_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_1"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_1]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_1]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[attr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_2"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_2]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_2]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[attr_3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_3"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_3]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_3]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[attr_4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_4"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_4]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_4]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[attr_5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_5"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_5]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_5]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[attr_6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_6"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_6]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_6]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[effective_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="effective_date"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[effective_date]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output].Columns[effective_date]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].Columns[is_active]"
+                      cachedDataType="i4"
+                      cachedName="is_active"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output].Columns[is_active]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[key]"
+                      dataType="i4"
+                      name="key" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_1" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_2" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_3" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_4" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_5" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_6" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
+                      dataType="ui1"
+                      name="is_active" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[effective_date]"
+                      dataType="dbTimeStamp"
+                      name="effective_date" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[expiry_date]"
+                      dataType="dbTimeStamp"
+                      name="expiry_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimEmployee_indexed] SET [expiry_date] = ?, [is_active]=0 WHERE [id] = ? AND [expiry_date] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input].Columns[expiry_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="expiry_date"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Output].Columns[expiry_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimEmployee_indexed] SET [attr_1] = ?,[attr_2] = ?,[attr_3] = ?,[attr_4] = ?,[attr_5] = ?,[attr_6] = ? WHERE [id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[attr_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_1"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_1]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[attr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_2"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_2]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[attr_3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_3"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_3]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[attr_4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_4"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_4]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[attr_5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_5"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_5]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[attr_6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_6"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_6]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 2"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimEmployee_indexed] SET [attr_1] = ?,[attr_2] = ? WHERE [id] = ? AND [expiry_date] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[attr_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_1"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_1]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[attr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_2"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_2]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1].Columns[attr_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_1"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1].Columns[attr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_2"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1].Columns[attr_3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_3"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_3]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_3]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1].Columns[attr_4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_4]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_4]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1].Columns[attr_5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_5"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_5]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_5]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1].Columns[attr_6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_6"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_6]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_6]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2].Columns[attr_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_1"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2].Columns[attr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_2"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2].Columns[attr_3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_3"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_3]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_3]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2].Columns[attr_4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_4]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_4]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2].Columns[attr_5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_5"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_5]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_5]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2].Columns[attr_6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_6"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output].Columns[attr_6]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_6]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_1]"
+                      name="attr_1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_2]"
+                      name="attr_2" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_3]"
+                      name="attr_3" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_4]"
+                      name="attr_4" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_5]"
+                      name="attr_5" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1].Columns[attr_6]"
+                      name="attr_6" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Changing Attribute Updates Output]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Derived Column Output]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Derived Column Output1]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Historical Attribute Inserts Output]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Inferred Member Updates Output]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[New Output]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Outputs[New Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[OLE DB Command Output]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[OLE DB Source Output]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes).Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Union All Output 1]"
+              endId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\(DFT) Employee to DimEmployee (empty, indexed)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{325FE219-8F19-4710-B0A9-B7F12CDA0FBD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(DFT) Employee to DimEmployee (empty, indexed)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="(DER) Add is_active, effective_date columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[is_active]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[is_active]"
+                      name="is_active"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[effective_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[effective_date]"
+                      name="effective_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="(OLE_DST) DimEmployee"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimEmployee_indexed]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_1"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_1]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_1]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_2"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_2]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_2]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_3"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_3]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_3]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_4"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_4]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_4]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_5"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_5]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_5]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="attr_6"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_6]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_6]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[is_active]"
+                      cachedDataType="i4"
+                      cachedName="is_active"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[is_active]" />
+                    <inputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[effective_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="effective_date"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[effective_date]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[effective_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[key]"
+                      dataType="i4"
+                      name="key" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_1" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_2" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_3" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_4" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_5" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_6" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
+                      dataType="ui1"
+                      name="is_active" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[effective_date]"
+                      dataType="dbTimeStamp"
+                      name="effective_date" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[expiry_date]"
+                      dataType="dbTimeStamp"
+                      name="expiry_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows)"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="(OLE_SRC) Employee Stage (1M rows)"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[employee_data_table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_1]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_1]"
+                      name="attr_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_2]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_2]"
+                      name="attr_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_3]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_3]"
+                      name="attr_3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_4]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_4]"
+                      name="attr_4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_5]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_5]"
+                      name="attr_5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_6]"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].Columns[attr_6]"
+                      name="attr_6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_1" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_2" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_3" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_4" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_5" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output].ExternalColumns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attr_6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_1]"
+                      name="attr_1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_2]"
+                      name="attr_2" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_3]"
+                      name="attr_3" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_4]"
+                      name="attr_4" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_5]"
+                      name="attr_5" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[attr_6]"
+                      name="attr_6" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[Derived Column Output]"
+              endId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[OLE DB Source Output]"
+              endId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows).Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\(SQL) Truncate DimEmployee (indexed)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{44259A85-FC00-48BA-85DC-A78C719A3841}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(SQL) Truncate DimEmployee (indexed)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4CA558BA-0343-479D-9514-3CEC05ED7D63}"
+          SQLTask:SqlStatementSource="truncate table DimEmployee_indexed" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0C14A8D-39C3-4568-84A0-E14B5D403E57}"
+      DTS:From="Package\(SQL) Truncate DimEmployee (indexed)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\(DFT) Employee to DimEmployee (empty, indexed)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <NodeLayout
+          Size="398.666666666667,42.6666666666667"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)"
+          TopLeft="186.250000737075,385.870594144717" />
+        <AnnotationLayout
+          Text="Mô phỏng đổ 1M dòng dữ liệu vào DimEmployee rỗng để chỉ demo Update, không demo Insert ở package này"
+          ParentId="372afce9-8cc6-4236-a153-044a0b80f0fb"
+          FontInfo="{assembly:Null}"
+          Size="618.666666666667,40"
+          Id="e93d4cbf-7990-4148-b66e-72c499d1cf9e"
+          TopLeft="0.602777314333935,5.5" />
+        <NodeLayout
+          Size="319.333333333334,41.3333333333334"
+          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)"
+          TopLeft="150.269443981001,144.791177200498" />
+        <NodeLayout
+          Size="266.666666666667,41.3333333333334"
+          Id="Package\(SQL) Truncate DimEmployee (indexed)"
+          TopLeft="176.602777314334,59.20000075754" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="309.936110647667,100.533334090873">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.2578431096251"
+              Start="0,0"
+              End="0,36.7578431096251">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7578431096251" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="First time - Đổ dữ liệu lần đầu vào DimEmployee"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="629.333333333334,240"
+          Size="629.333333333334,282.666666666667"
+          Id="372afce9-8cc6-4236-a153-044a0b80f0fb"
+          TopLeft="60.971429159112,38.0647070407826">
+          <GroupLayout.ChildrenIds>
+            <s:String>e93d4cbf-7990-4148-b66e-72c499d1cf9e</s:String>
+            <s:String>Package\(DFT) Employee to DimEmployee (empty, indexed)</s:String>
+            <s:String>Package\(SQL) Truncate DimEmployee (indexed)</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <AnnotationLayout
+          Text=""
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="34.6666666666667,40"
+          Id="7c905387-5352-4ce3-b1f0-6eeaced31aab"
+          TopLeft="686.249989774078,203.449996362031" />
+        <AnnotationLayout
+          Text="+40k dòng mới&#xA;~23k dòng thay đổi"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="133.333333333334,56"
+          Id="b3f4001c-6ed8-4ab7-b7ba-195445a27ec9"
+          TopLeft="52.4999992176892,378.299993235469" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command"
+          TopLeft="5.49999999999997,310.3" />
+        <NodeLayout
+          Size="174.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 1"
+          TopLeft="291.7,208.7" />
+        <NodeLayout
+          Size="120,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Union All"
+          TopLeft="170.9,411.9" />
+        <NodeLayout
+          Size="162.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination"
+          TopLeft="149.7,615.099999999999" />
+        <NodeLayout
+          Size="174.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\OLE DB Command 2"
+          TopLeft="526.7,208.7" />
+        <NodeLayout
+          Size="152.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column"
+          TopLeft="17.5,208.7" />
+        <NodeLayout
+          Size="243.333333333334,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee"
+          TopLeft="109.3,107.1" />
+        <NodeLayout
+          Size="390.666666666667,42.6666666666667"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes)"
+          TopLeft="37.1249999906868,5.49999999999995" />
+        <NodeLayout
+          Size="162.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Derived Column 1"
+          TopLeft="149.7,513.5" />
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Union All Output 1]"
+          TopLeft="230.9,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[OLE DB Source Output]"
+          TopLeft="231.712499995343,48.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.9333333333334"
+              Start="0,0"
+              End="0,51.4333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.4333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[OLE DB Command Output]"
+          TopLeft="87.9,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.333333333333,59.9999999999998"
+              Start="0,0"
+              End="124.333333333333,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
+                  <mssgle:LineSegment
+                    End="120.333333333333,35.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
+                  <mssgle:LineSegment
+                    End="124.333333333333,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[New Output]"
+          TopLeft="207.38,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.1866666666666,263.2"
+              Start="0,0"
+              End="42.1866666666666,255.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137.956633101965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,137.956633101965"
+                    Point2="0,141.956633101965"
+                    Point3="4,141.956633101965" />
+                  <mssgle:LineSegment
+                    End="38.1866666666666,141.956633101965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.1866666666666,141.956633101965"
+                    Point2="42.1866666666666,141.956633101965"
+                    Point3="42.1866666666666,145.956633101965" />
+                  <mssgle:LineSegment
+                    End="42.1866666666666,255.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.99805338541668,146.956633101965,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Inferred Member Updates Output]"
+          TopLeft="254.42,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.48,59.9999999999999"
+              Start="0,0"
+              End="124.48,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.788055353241" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.788055353241"
+                    Point2="0,26.788055353241"
+                    Point3="4,26.788055353241" />
+                  <mssgle:LineSegment
+                    End="120.48,26.788055353241" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.48,26.788055353241"
+                    Point2="124.48,26.788055353241"
+                    Point3="124.48,30.788055353241" />
+                  <mssgle:LineSegment
+                    End="124.48,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.16298828125,31.788055353241,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Historical Attribute Inserts Output]"
+          TopLeft="160.34,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66.44,60"
+              Start="0,0"
+              End="-66.44,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.7386468952734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.7386468952734"
+                    Point2="0,17.7386468952734"
+                    Point3="-4,17.7386468952734" />
+                  <mssgle:LineSegment
+                    End="-62.44,17.7386468952734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.44,17.7386468952734"
+                    Point2="-66.44,17.7386468952734"
+                    Point3="-66.44,21.7386468952734" />
+                  <mssgle:LineSegment
+                    End="-66.44,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-108.27638671875,22.7386468952734,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Derived Column Output1]"
+          TopLeft="230.9,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Derived Column Output]"
+          TopLeft="90.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed).Paths[Changing Attribute Updates Output]"
+          TopLeft="301.46,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="312.44,59.9999999999999"
+              Start="0,0"
+              End="312.44,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.7386468952734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.7386468952734"
+                    Point2="0,17.7386468952734"
+                    Point3="4,17.7386468952734" />
+                  <mssgle:LineSegment
+                    End="308.44,17.7386468952734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="308.44,17.7386468952734"
+                    Point2="312.44,17.7386468952734"
+                    Point3="312.44,21.7386468952734" />
+                  <mssgle:LineSegment
+                    End="312.44,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="77.68609375,22.7386468952734,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(SCD) Setup SCD for DimEmployee">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{4CA558BA-0343-479D-9514-3CEC05ED7D63}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimEmployee_indexed]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;(OLE_SRC) Employee Stage (1M40k rows, 40k new, 20k changes).Outputs[OLE DB Source Output].Columns[attr_1]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attr_1&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;(OLE_SRC) Employee Stage (1M40k rows, 40k new, 20k changes).Outputs[OLE DB Source Output].Columns[attr_2]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attr_2&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;(OLE_SRC) Employee Stage (1M40k rows, 40k new, 20k changes).Outputs[OLE DB Source Output].Columns[attr_3]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attr_3&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;(OLE_SRC) Employee Stage (1M40k rows, 40k new, 20k changes).Outputs[OLE DB Source Output].Columns[attr_4]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attr_4&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;(OLE_SRC) Employee Stage (1M40k rows, 40k new, 20k changes).Outputs[OLE DB Source Output].Columns[attr_5]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attr_5&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;(OLE_SRC) Employee Stage (1M40k rows, 40k new, 20k changes).Outputs[OLE DB Source Output].Columns[attr_6]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attr_6&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;(OLE_SRC) Employee Stage (1M40k rows, 40k new, 20k changes).Outputs[OLE DB Source Output].Columns[id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;effective_date&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;expiry_date&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::CreationDate&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\(DFT) Employee (1M40k rows) to DimEmployee (1M rows, indexed)\(OLE_SRC) Employee Stage (1M40k rows; 40k new, 23k changes)">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\(DFT) Employee to DimEmployee (empty, indexed)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="260,41.3333333333334"
+          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows)"
+          TopLeft="182.857145971182,189.647061483258" />
+        <NodeLayout
+          Size="286.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns"
+          TopLeft="171.428574347983,304.352945444906" />
+        <NodeLayout
+          Size="198.666666666667,41.3333333333334"
+          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee"
+          TopLeft="218.571432293678,406.058829224233" />
+        <EdgeLayout
+          Id="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[OLE DB Source Output]"
+          TopLeft="313.742860159582,231.247061483258">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.1058839616478"
+              Start="0,0"
+              End="0,65.6058839616478">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.6058839616478" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[Derived Column Output]"
+          TopLeft="316.20000332083,345.952945444906">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.1058837793277"
+              Start="0,0"
+              End="0,52.6058837793277">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.6058837793277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M rows)">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
