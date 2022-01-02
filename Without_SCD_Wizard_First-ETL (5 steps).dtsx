@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="12/30/2021 4:19:26 PM"
+  DTS:CreationDate="12/30/2021 8:07:03 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-TOL1F2F"
   DTS:CreatorName="DESKTOP-TOL1F2F\quany"
-  DTS:DTSID="{D58A3DB9-CD15-4EE1-ABBE-54F401B34867}"
+  DTS:DTSID="{9F498844-5D6E-44C6-865B-C9115E62F5F5}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="2057"
-  DTS:ObjectName="Without_SCD_Wizard_Third-ETL"
+  DTS:ObjectName="Without_SCD_Wizard_First-ETL  5 steps"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{5D988BE1-EA39-400B-A1B6-981C0EEBF299}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{8FD837CE-01DD-4612-82E7-FBEC97CFC4F7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{2F5949A0-C9EE-4FAE-A51D-E94F469B9FA6}"
+      DTS:DTSID="{EB4A559E-65CF-48ED-9066-33B103C346DC}"
       DTS:ObjectName="DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{BB05B07B-39B8-4B52-B517-C95B8A2D8112}"
+      DTS:DTSID="{418DB705-352A-456A-974A-D579A17F5F99}"
       DTS:ObjectName="DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -44,7 +44,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{240DD598-EBA7-48B7-A8EA-E9855A3347EC}"
+      DTS:DTSID="{15B3CDD4-A6DD-47DF-8ACB-213AB80E10E2}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="CurrentTime">
@@ -54,611 +54,10 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\(DFT) Employee to DimEmployee (empty, indexed)"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{BC493021-15D7-4D00-83D0-3D0F901318BF}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="(DFT) Employee to DimEmployee (empty, indexed)"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="(DER) Add is_active, effective_date columns"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[is_active]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[is_active]"
-                      name="is_active"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">1</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">1</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[effective_date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[effective_date]"
-                      name="effective_date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[GETDATE]()</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">GETDATE()</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="(OLE_DST) DimEmployee"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimEmployee_indexed]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_DDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[id]"
-                      cachedDataType="i4"
-                      cachedName="id"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[id]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_1]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="attr_1"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_1]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_1]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="attr_2"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_2]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_2]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_3]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="attr_3"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_3]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_3]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_4]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="attr_4"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_4]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_4]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_5]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="attr_5"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_5]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_5]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[attr_6]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="attr_6"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_6]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_6]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[is_active]"
-                      cachedDataType="i4"
-                      cachedName="is_active"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[is_active]" />
-                    <inputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].Columns[effective_date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="effective_date"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[effective_date]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output].Columns[effective_date]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[key]"
-                      dataType="i4"
-                      name="key" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      dataType="i4"
-                      name="id" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_1" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_2" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_3" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_4]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_4" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_5]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_5" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[attr_6]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_6" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
-                      dataType="ui1"
-                      name="is_active" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[effective_date]"
-                      dataType="dbTimeStamp"
-                      name="effective_date" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[expiry_date]"
-                      dataType="dbTimeStamp"
-                      name="expiry_date" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows)"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="(OLE_SRC) Employee Stage (1M40k rows)"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[employee_data_update_table]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-TOL1F2F\MSSQLSERVERBI.Seminar_Stage]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[id]"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[id]"
-                      name="id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_1]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_1]"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_1]"
-                      name="attr_1"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_2]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_2]"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_2]"
-                      name="attr_2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_3]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_3]"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_3]"
-                      name="attr_3"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_4]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_4]"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_4]"
-                      name="attr_4"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_5]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_5]"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_5]"
-                      name="attr_5"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_6]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_6]"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].Columns[attr_6]"
-                      name="attr_6"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[id]"
-                      dataType="i4"
-                      name="id" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_1" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_2" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_3" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_4]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_4" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_5]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_5" />
-                    <externalMetadataColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output].ExternalColumns[attr_6]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="attr_6" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[id]"
-                      dataType="i4"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[id]"
-                      name="id" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_1]"
-                      name="attr_1" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_2]"
-                      name="attr_2" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_3]"
-                      name="attr_3" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_4]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_4]"
-                      name="attr_4" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_5]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_5]"
-                      name="attr_5" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_6]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[attr_6]"
-                      name="attr_6" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[Derived Column Output]"
-              endId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[OLE DB Source Output]"
-              endId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns.Inputs[Derived Column Input]"
-              name="OLE DB Source Output"
-              startId="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows).Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{27B4A911-4059-4989-8D00-1B73EC39343F}"
+      DTS:DTSID="{746b08ec-c926-417c-b8fc-6ca47980c95b}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="(DFT) Employee update to DimEmployee (indexed) (DDS)"
@@ -941,13 +340,13 @@ where id=? and is_active=1</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(OLE_SRC) Employee update.Outputs[OLE DB Source Output].Columns[type]} == 1</property>
+                      name="Expression">([ISNULL](#{Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(OLE_SRC) Employee update.Outputs[OLE DB Source Output].Columns[type]}) ? -1 : #{Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(OLE_SRC) Employee update.Outputs[OLE DB Source Output].Columns[type]}) == 1</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">type == 1</property>
+                      name="FriendlyExpression">(ISNULL(type) ? -1 : type) == 1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1781,7 +1180,7 @@ where [refTable].[id] = ?</property>
       DTS:refId="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{5BD35433-AEAC-45C9-8A41-239805197419}"
+      DTS:DTSID="{460b8410-e17d-48e3-9087-9c830e801bce}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="(DFT) Insert changed and new employees to employee_update_table (Stage)"
@@ -2034,26 +1433,26 @@ where [refTable].[id] = ?</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT e.*, 1 AS type, 0 AS new
-	FROM employee_sync_table_2 es
-	JOIN employee_table_2 e
+	FROM employee_sync_table_0 es
+	JOIN employee_table_0 e
 	ON es.id = e.id
 	WHERE es.hash_type_1 != e.hash_type_1 
 		and es.hash_type_2 = e.hash_type_2
 	UNION ALL
 	(
 		SELECT e.*, 2 AS type, 0 AS new
-		FROM employee_sync_table_2 es
-		JOIN employee_table_2 e
+		FROM employee_sync_table_0 es
+		JOIN employee_table_0 e
 		ON es.id = e.id
 		WHERE es.hash_type_2 != e.hash_type_2
 	)
 	UNION ALL
 	(
 		SELECT *, NULL AS type, 1 AS new
-		FROM employee_table_2
+		FROM employee_table_0
 		WHERE id NOT IN
 		(
-			SELECT id FROM employee_sync_table_2
+			SELECT id FROM employee_sync_table_0
 		)
 	);</property>
                 <property
@@ -2373,16 +1772,16 @@ where [refTable].[id] = ?</property>
       DTS:refId="Package\(SQL) Obtain Current Time"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{0B5C16A4-31C5-4103-9279-99522F72B000}"
+      DTS:DTSID="{bfc06caf-548a-4e90-8dca-2b91fcf3deb1}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="(SQL) Obtain Current Time"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{BB05B07B-39B8-4B52-B517-C95B8A2D8112}"
+          SQLTask:Connection="{418DB705-352A-456A-974A-D579A17F5F99}"
           SQLTask:SqlStatementSource="SELECT CT=GETDATE()"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -2396,25 +1795,24 @@ where [refTable].[id] = ?</property>
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:Disabled="True"
-      DTS:DTSID="{C0506BCD-A3B2-4960-9F41-5A6EC7F56CB8}"
+      DTS:DTSID="{3a73bbf6-d6fc-46cb-8a5c-ede8ad16b4a2}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="(SQL) Sync employee_sync_table with employee_table"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{BB05B07B-39B8-4B52-B517-C95B8A2D8112}"
-          SQLTask:SqlStatementSource="insert into employee_sync_table_2 &#xA;(id, attr_1, attr_2, attr_3, attr_4, attr_5, attr_6, hash_type_1, hash_type_2, updated_date)&#xA;select *, updated_date=getdate() from employee_table_2;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{418DB705-352A-456A-974A-D579A17F5F99}"
+          SQLTask:SqlStatementSource="truncate table employee_sync_table&#xA;go&#xA;insert into employee_sync_table&#xA;(id, attr_1, attr_2, attr_3, attr_4, attr_5, attr_6, hash_type_1, hash_type_2, updated_date)&#xA;select *, updated_date=getdate() from employee_table;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\(SQL) Truncate DimEmployee (indexed)"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{7C0617B2-6975-43AA-80A5-B45B5A2F36E2}"
+      DTS:DTSID="{4AEFC762-8275-4782-BABB-A05DA8F5877A}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="(SQL) Truncate DimEmployee (indexed)"
@@ -2423,7 +1821,7 @@ where [refTable].[id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{2F5949A0-C9EE-4FAE-A51D-E94F469B9FA6}"
+          SQLTask:Connection="{EB4A559E-65CF-48ED-9066-33B103C346DC}"
           SQLTask:SqlStatementSource="truncate table DimEmployee_indexed" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2431,16 +1829,16 @@ where [refTable].[id] = ?</property>
       DTS:refId="Package\(SQL) Truncate Employee update table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{D0B14F24-62AC-494C-A31E-104DDB2814C3}"
+      DTS:DTSID="{8fe51687-036f-4c45-a1e3-b50cfb174223}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="(SQL) Truncate Employee update table"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{BB05B07B-39B8-4B52-B517-C95B8A2D8112}"
+          SQLTask:Connection="{418DB705-352A-456A-974A-D579A17F5F99}"
           SQLTask:SqlStatementSource="truncate table employee_update_table" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2449,7 +1847,7 @@ where [refTable].[id] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{DCFD29A7-A08F-4A45-B126-9781EE4D41B7}"
+      DTS:DTSID="{cbca3bf6-f4c0-4f80-82e9-1c6b57d20129}"
       DTS:From="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -2457,7 +1855,7 @@ where [refTable].[id] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{965DA915-3F72-4828-B9D6-406F9C06C924}"
+      DTS:DTSID="{5afc16e4-b855-4a17-9668-fa4d4009aba3}"
       DTS:From="Package\(SQL) Truncate Employee update table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -2465,15 +1863,15 @@ where [refTable].[id] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{483BAD94-0306-41D2-90BB-60D128A54872}"
-      DTS:From="Package\(SQL) Truncate DimEmployee (indexed)"
+      DTS:DTSID="{52518792-FFC2-4B53-98B7-4F563F66A86A}"
+      DTS:From="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\(DFT) Employee to DimEmployee (empty, indexed)" />
+      DTS:To="Package\(SQL) Sync employee_sync_table with employee_table" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{B5827E3A-AAC4-46F7-BD8F-F2F47F04344C}"
+      DTS:DTSID="{56233f38-8cd5-479e-b81e-e68f2979c9a9}"
       DTS:From="Package\(SQL) Obtain Current Time"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -2481,11 +1879,11 @@ where [refTable].[id] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{21099B02-9E29-4BBF-B13D-BF80F7FBE950}"
-      DTS:From="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)"
+      DTS:DTSID="{994BB515-ECFF-43FE-B578-C00DBA95F3B4}"
+      DTS:From="Package\(SQL) Truncate DimEmployee (indexed)"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
-      DTS:To="Package\(SQL) Sync employee_sync_table with employee_table" />
+      DTS:To="Package\(SQL) Obtain Current Time" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2498,30 +1896,34 @@ where [refTable].[id] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="352,42.6666666666667"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)"
-          TopLeft="502.196426699089,442.535302356451" />
+          TopLeft="102.4999993667,379.68530455318" />
         <NodeLayout
           Size="444,42.6666666666667"
           Id="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)"
-          TopLeft="459.696427332389,345.506867334922" />
+          TopLeft="60,282.65686953165" />
         <NodeLayout
-          Size="319.333333333334,42.6666666666667"
+          Size="206.666666666667,42.6666666666667"
           Id="Package\(SQL) Obtain Current Time"
-          TopLeft="520.321426429006,146.899997373223" />
+          TopLeft="173.749998304993,81.4499996164441" />
         <NodeLayout
           Size="337.333333333334,42.6666666666667"
           Id="Package\(SQL) Sync employee_sync_table with employee_table"
-          TopLeft="511.708328152076,529.38332422485" />
+          TopLeft="105.156249327119,473.576971376756" />
+        <NodeLayout
+          Size="268,42.6666666666667"
+          Id="Package\(SQL) Truncate DimEmployee (indexed)"
+          TopLeft="514.999992325902,21.4499996164442" />
         <NodeLayout
           Size="319.333333333334,42.6666666666667"
           Id="Package\(SQL) Truncate Employee update table"
-          TopLeft="520.321426429006,243.928432394753" />
+          TopLeft="120.624999096617,181.078434591482" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="679.946427015739,388.173534001589">
+          TopLeft="280.24999968335,325.323536198317">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2543,7 +1945,7 @@ where [refTable].[id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="680.842260214031,286.595099061419">
+          TopLeft="281.145832881642,223.745101258148">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2564,211 +1966,100 @@ where [refTable].[id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="679.988093095672,189.56666403989">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.3617683548627"
-              Start="0,0"
-              End="0,46.8617683548627">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.8617683548627" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="679.285710758916,485.201969023118">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.1813552017319"
-              Start="0,0"
-              End="0,36.6813552017319">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.6813552017319" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Mô phỏng đổ dữ liệu lần thứ 2, để DimEmployee có sẵn dữ liệu (1M40k dòng)."
-          ParentId="556c0214-3ddd-4605-8303-fa0392749e74"
-          FontInfo="{assembly:Null}"
-          Size="445.333333333334,NaN"
-          Id="211d34cf-901f-4235-9721-ee41c87174b5"
-          TopLeft="13.0888888445402,13.5333316131433" />
-        <NodeLayout
-          Size="320,42.6666666666667"
-          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)"
-          TopLeft="44.4222221778736,173.391176689091" />
-        <NodeLayout
-          Size="319.333333333334,41.3333333333334"
-          Id="Package\(SQL) Truncate DimEmployee (indexed)"
-          TopLeft="44.7555555112069,61.5955880423497" />
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="204.422222177874,102.928921375683">
+          TopLeft="276.161457680243,422.351971219847">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.4622553134076"
+              EndConnector="0,51.2250001569092"
               Start="0,0"
-              End="0,62.9622553134076">
+              End="0,43.7250001569092">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.9622553134076" />
+                    End="0,43.7250001569092" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <GroupLayout
-          Text="Second ETL - Mô phỏng"
-          ParentId="Package"
-          HeaderHeight="43"
-          IsExpanded="False"
-          PanelSize="463.333333333334,266.666666666667"
-          Size="150,42.6666666666667"
-          Id="556c0214-3ddd-4605-8303-fa0392749e74"
-          TopLeft="20.8928632861642,28.4088243633519">
-          <GroupLayout.ChildrenIds>
-            <s:String>211d34cf-901f-4235-9721-ee41c87174b5</s:String>
-            <s:String>Package\(DFT) Employee to DimEmployee (empty, indexed)</s:String>
-            <s:String>Package\(SQL) Truncate DimEmployee (indexed)</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint 2]</s:String>
-          </GroupLayout.ChildrenIds>
-        </GroupLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="278.687498700805,124.116666283111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.9617683083711"
+              Start="0,0"
+              End="0,49.4617683083711">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.4617683083711" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <AnnotationLayout
-          Text="Quy trình chính: đổ dữ liệu vào DimEmployee (đã có 1M40k dòng dữ liệu)&#xA;Cập nhật và thêm:&#xA;- 20k dòng loại 1&#xA;- 20k dòng loại 2&#xA;- 80k dòng mới"
+          Text="Đổ 1M dòng từ employee_table (copy) vào DimEmployee (empty, indexed)"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="418.666666666667,104"
-          Id="234b181a-21f5-4791-b04c-88060331ccdc"
-          TopLeft="476.874992894009,33.9166661436359" />
+          Size="424,40"
+          Id="b8db7ab2-5264-44e6-950f-ec1b0fa97cd4"
+          TopLeft="69.3749989662319,16.2499997094274" />
         <AnnotationLayout
           Text="Disable để demo, dữ liệu sẽ không bị cập nhật vào bảng sync"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="353.333333333334,40"
-          Id="1efd875b-c8b2-468e-be4e-743ebca0f667"
-          TopLeft="155.267861283821,530.216659379105" />
+          Id="eb6f0d81-adfc-43d7-b192-480d98632885"
+          TopLeft="460.144669356221,469.379621448395" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="514.999992325902,42.7833329497775">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134.583327354242,59.9999999999999"
+              Start="0,0"
+              End="-127.083327354242,59.9999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-63.2916636771212,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-63.2916636771212,0"
+                    Point2="-67.2916636771212,0"
+                    Point3="-67.2916636771212,4" />
+                  <mssgle:LineSegment
+                    End="-67.2916636771212,55.9999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-67.2916636771212,55.9999999999999"
+                    Point2="-67.2916636771212,59.9999999999999"
+                    Point3="-71.2916636771212,59.9999999999999" />
+                  <mssgle:LineSegment
+                    End="-127.083327354242,59.9999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\(DFT) Employee to DimEmployee (empty, indexed)">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="278.666666666667,42.6666666666667"
-          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows)"
-          TopLeft="182.857145971182,189.647061483258" />
-        <NodeLayout
-          Size="286.666666666667,41.3333333333334"
-          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)\(DER) Add is_active, effective_date columns"
-          TopLeft="171.428574347983,304.352945444906" />
-        <NodeLayout
-          Size="198.666666666667,41.3333333333334"
-          Id="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee"
-          TopLeft="218.571432293678,406.058829224233" />
-        <EdgeLayout
-          Id="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[OLE DB Source Output]"
-          TopLeft="318.476193492916,232.313728149925">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72.0392172949814"
-              Start="0,0"
-              End="0,64.5392172949814">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5392172949814" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\(DFT) Employee to DimEmployee (empty, indexed).Paths[Derived Column Output]"
-          TopLeft="316.20000332083,345.952945444906">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.1058837793277"
-              Start="0,0"
-              End="0,52.6058837793277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.6058837793277" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_SRC) Employee Stage (1M40k rows)">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\(DFT) Employee to DimEmployee (empty, indexed)\(OLE_DST) DimEmployee">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)">
     <LayoutInfo>
@@ -2777,81 +2068,81 @@ where [refTable].[id] = ?</property>
         <NodeLayout
           Size="215.333333333334,41.3333333333334"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(OLE_SRC) Employee update"
-          TopLeft="305,95" />
+          TopLeft="305,70.7142857142857" />
         <NodeLayout
-          Size="226,41.3333333333334"
+          Size="305.333333333334,41.3333333333334"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(CMD) Update type 1 attributes in DimEmployee"
-          TopLeft="126.357142857143,326.499999999999" />
+          TopLeft="58.2857142857142,415.071428571428" />
         <NodeLayout
-          Size="298.666666666667,41.3333333333334"
+          Size="440.666666666667,41.3333333333334"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(OLE_DST) Insert new data and new type 2 changed data into DimEmployee"
-          TopLeft="440.912698412698,398.214285714286" />
+          TopLeft="419,474.642857142857" />
         <NodeLayout
-          Size="236.666666666667,41.3333333333334"
+          Size="304,41.3333333333334"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(DER) Add is_active and effective_date columns"
-          TopLeft="471.912698412698,325.714285714286" />
+          TopLeft="484.285714285714,368.571428571429" />
         <NodeLayout
-          Size="232,41.3333333333334"
+          Size="301.333333333334,41.3333333333334"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(LKP) Lookup type 1 attributes DimEmployee id"
-          TopLeft="123.357142857143,250.714285714286" />
+          TopLeft="55.714285714286,273.571428571429" />
         <NodeLayout
-          Size="252,41.3333333333334"
+          Size="397.333333333334,41.3333333333334"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(CMD) Update old type 2 is_active and expiry_date in DimEmployee"
-          TopLeft="464.246031746032,253.642857142857" />
+          TopLeft="437.357142857143,275.785714285714" />
         <NodeLayout
           Size="192,41.3333333333334"
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(CSPL) Is type 1 change"
           TopLeft="316.428571428571,172.857142857143" />
         <EdgeLayout
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS).Paths[SCD Type 1]"
-          TopLeft="381.761904761904,214.190476190476">
+          TopLeft="381.761904761905,214.457142857143">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-142.404761904761,36.5238095238099"
+              EndConnector="-175.247619047619,59.114285714286"
               Start="0,0"
-              End="-142.404761904761,29.0238095238099">
+              End="-175.247619047619,51.614285714286">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.7906336088156" />
+                    End="0,19.9388429752067" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.7906336088156"
-                    Point2="0,14.7906336088156"
-                    Point3="-4,14.7906336088156" />
+                    Point1="0,19.9388429752067"
+                    Point2="0,23.9388429752067"
+                    Point3="-4,23.9388429752067" />
                   <mssgle:LineSegment
-                    End="-138.404761904761,14.7906336088156" />
+                    End="-171.247619047619,23.9388429752067" />
                   <mssgle:CubicBezierSegment
-                    Point1="-138.404761904761,14.7906336088156"
-                    Point2="-142.404761904761,14.7906336088156"
-                    Point3="-142.404761904761,18.7906336088156" />
+                    Point1="-171.247619047619,23.9388429752067"
+                    Point2="-175.247619047619,23.9388429752067"
+                    Point3="-175.247619047619,27.9388429752067" />
                   <mssgle:LineSegment
-                    End="-142.404761904761,29.0238095238099" />
+                    End="-175.247619047619,51.614285714286" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-97.4536114211307,19.7906336088156,52.5024609375,11.4140625"
+              BoundingBox="-113.875039992559,28.9388429752067,52.5024609375,11.4140625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS).Paths[OLE DB Source Output]"
-          TopLeft="412.547619047619,136.333333333333">
+          TopLeft="412.514285714286,112.314285714286">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.5238095238097"
+              EndConnector="0,60.5428571428573"
               Start="0,0"
-              End="0,29.0238095238097">
+              End="0,53.0428571428573">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.0238095238097" />
+                    End="0,53.0428571428573" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2862,18 +2153,18 @@ where [refTable].[id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS).Paths[OLE DB Command Output]"
-          TopLeft="590.246031746032,294.97619047619">
+          TopLeft="636.154761904762,317.119047619047">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.7380952380959"
+              EndConnector="0,51.4523809523817"
               Start="0,0"
-              End="0,23.2380952380959">
+              End="0,43.9523809523817">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.2380952380959" />
+                    End="0,43.9523809523817" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2884,42 +2175,42 @@ where [refTable].[id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS).Paths[Lookup Match Output]"
-          TopLeft="239.357142857143,292.04761904762">
+          TopLeft="208.666666666667,314.904761904762">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.4523809523798"
+              EndConnector="0,100.166666666666"
               Start="0,0"
-              End="0,26.9523809523798">
+              End="0,92.6666666666657">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.9523809523798" />
+                    End="0,92.6666666666657" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.67150297618991,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,40.5286458333328,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\(DFT) Employee update to DimEmployee (indexed) (DDS).Paths[Derived Column Output]"
-          TopLeft="590.246031746032,367.047619047619">
+          TopLeft="637.809523809524,409.904761904762">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.1666666666661"
+              EndConnector="0,64.7380952380947"
               Start="0,0"
-              End="0,23.6666666666661">
+              End="0,57.2380952380947">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.6666666666661" />
+                    End="0,57.2380952380947" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2934,33 +2225,33 @@ where [refTable].[id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="147.150793650794,39.4523809523806"
+              EndConnector="192.928571428572,61.5952380952376"
               Start="0,0"
-              End="147.150793650794,31.9523809523806">
+              End="192.928571428572,54.0952380952376">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.9765840220384" />
+                    End="0,20.9435261707987" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.9765840220384"
-                    Point2="0,15.9765840220384"
-                    Point3="4,15.9765840220384" />
+                    Point1="0,20.9435261707987"
+                    Point2="0,24.9435261707987"
+                    Point3="4,24.9435261707987" />
                   <mssgle:LineSegment
-                    End="143.150793650794,15.9765840220384" />
+                    End="188.928571428572,24.9435261707987" />
                   <mssgle:CubicBezierSegment
-                    Point1="143.150793650794,15.9765840220384"
-                    Point2="147.150793650794,15.9765840220384"
-                    Point3="147.150793650794,19.9765840220384" />
+                    Point1="188.928571428572,24.9435261707987"
+                    Point2="192.928571428572,24.9435261707987"
+                    Point3="192.928571428572,28.9435261707987" />
                   <mssgle:LineSegment
-                    End="147.150793650794,31.9523809523806" />
+                    End="192.928571428572,54.0952380952376" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="2.96149057539702,20.9765840220384,141.2278125,11.658203125"
+              BoundingBox="25.850379464286,29.9435261707987,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2981,38 +2272,12 @@ where [refTable].[id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(OLE_DST) Insert new data and new type 2 changed data into DimEmployee">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\(DFT) Employee update to DimEmployee (indexed) (DDS)\(LKP) Lookup type 1 attributes DimEmployee id">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
           type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimEmployee_indexed]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3022,27 +2287,27 @@ where [refTable].[id] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="250.666666666667,41.3333333333334"
-          Id="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)\(OLE_DST) Employee (update table)"
-          TopLeft="225.898813413507,240.146084188385" />
-        <NodeLayout
           Size="240.666666666667,41.3333333333334"
           Id="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)\(OLE_SRC) New data and changes"
-          TopLeft="229.428575369777,103.470589672405" />
+          TopLeft="232.053575360464,101.820589684028" />
+        <NodeLayout
+          Size="250.666666666667,41.3333333333334"
+          Id="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)\(OLE_DST) Employee (update table)"
+          TopLeft="232.148813320375,223.24608449058" />
         <EdgeLayout
           Id="Package\(DFT) Insert changed and new employees to employee_update_table (Stage).Paths[OLE DB Source Output]"
-          TopLeft="350.497027724976,144.803923005738">
+          TopLeft="354.934527673753,143.153923017361">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,95.3421611826465"
+              EndConnector="0,80.0921614732191"
               Start="0,0"
-              End="0,87.8421611826465">
+              End="0,72.5921614732191">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,87.8421611826465" />
+                    End="0,72.5921614732191" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
