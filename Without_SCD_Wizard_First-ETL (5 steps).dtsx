@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Without_SCD_Wizard_First-ETL  5 steps"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{8FD837CE-01DD-4612-82E7-FBEC97CFC4F7}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{F8EF220B-59D5-4B57-893D-B16A403C3A91}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2009,20 +2009,6 @@ where [refTable].[id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="Đổ 1M dòng từ employee_table (copy) vào DimEmployee (empty, indexed)"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="424,40"
-          Id="b8db7ab2-5264-44e6-950f-ec1b0fa97cd4"
-          TopLeft="69.3749989662319,16.2499997094274" />
-        <AnnotationLayout
-          Text="Disable để demo, dữ liệu sẽ không bị cập nhật vào bảng sync"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="353.333333333334,40"
-          Id="eb6f0d81-adfc-43d7-b192-480d98632885"
-          TopLeft="460.144669356221,469.379621448395" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="514.999992325902,42.7833329497775">
@@ -2057,6 +2043,20 @@ where [refTable].[id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Đổ 1M dòng từ employee_table (copy) vào DimEmployee (empty, indexed)"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="424,40"
+          Id="b8db7ab2-5264-44e6-950f-ec1b0fa97cd4"
+          TopLeft="69.3749989662319,16.2499997094274" />
+        <AnnotationLayout
+          Text="Disable để demo, dữ liệu sẽ không bị cập nhật vào bảng sync"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="353.333333333334,40"
+          Id="eb6f0d81-adfc-43d7-b192-480d98632885"
+          TopLeft="460.144669356221,469.379621448395" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2125,7 +2125,7 @@ where [refTable].[id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-113.875039992559,28.9388429752067,52.5024609375,11.4140625"
+              BoundingBox="-113.875039992559,28.9388429752067,93.0748046875,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2148,7 +2148,9 @@ where [refTable].[id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.51447265625,20.9096121651787,69.0289453125,11.2236328125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2170,7 +2172,9 @@ where [refTable].[id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.51447265625,16.3643740699409,69.0289453125,11.2236328125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2193,7 +2197,7 @@ where [refTable].[id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,40.5286458333328,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,40.5286458333328,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2216,7 +2220,9 @@ where [refTable].[id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.51447265625,23.0072312127974,69.0289453125,11.2236328125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2251,7 +2257,7 @@ where [refTable].[id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="25.850379464286,29.9435261707987,141.2278125,11.658203125"
+              BoundingBox="-13.444972098214,29.9435261707987,219.818515625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2285,7 +2291,7 @@ where [refTable].[id] = ?</property>
     design-time-name="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="240.666666666667,41.3333333333334"
           Id="Package\(DFT) Insert changed and new employees to employee_update_table (Stage)\(OLE_SRC) New data and changes"
@@ -2313,7 +2319,9 @@ where [refTable].[id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.51447265625,30.6842643303595,69.0289453125,11.2236328125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
